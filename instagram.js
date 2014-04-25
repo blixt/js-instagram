@@ -42,11 +42,11 @@ Instagram.BASE_URL = 'https://api.instagram.com/v1';
  * @enum
  */
 Instagram.Scope = {
-  ALL: 7,
-  BASIC: 0,
-  LIKES: 1,
-  COMMENTS: 2,
-  RELATIONSHIPS: 4
+  ALL: 2047, /* 1,2,4 ... 1024*/
+  BASIC: 1,
+  LIKES: 2,
+  COMMENTS: 4,
+  RELATIONSHIPS: 8
 };
 
 /**
@@ -55,10 +55,10 @@ Instagram.Scope = {
  * @private
  */
 Instagram._translateScope = {
-  0: 'basic',
-  1: 'likes',
-  2: 'comments',
-  4: 'relationships'
+  1: 'basic',
+  2: 'likes',
+  4: 'comments',
+  8: 'relationships'
 };
 
 /**
@@ -427,3 +427,8 @@ InstagramImage.prototype.update = function (data) {
 
   // TODO(blixt): This has not been implemented yet.
 };
+) {
+    InstagramImage.preloaded_[this.src] = true;
+  } else {
+    // TODO(blixt): Should report back to calling code when failing.
+    if (console) console.error(
