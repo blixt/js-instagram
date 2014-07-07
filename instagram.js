@@ -42,7 +42,7 @@ Instagram.BASE_URL = 'https://api.instagram.com/v1';
  * @enum
  */
 Instagram.Scope = {
-  ALL: 2047, /* 1,2,4 ... 1024*/
+  ALL: 2047, // All flags up to 1024.
   BASIC: 1,
   LIKES: 2,
   COMMENTS: 4,
@@ -427,8 +427,3 @@ InstagramImage.prototype.update = function (data) {
 
   // TODO(blixt): This has not been implemented yet.
 };
-) {
-    InstagramImage.preloaded_[this.src] = true;
-  } else {
-    // TODO(blixt): Should report back to calling code when failing.
-    if (console) console.error(
